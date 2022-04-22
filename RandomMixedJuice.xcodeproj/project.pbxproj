@@ -13,6 +13,7 @@
 		B28A38A02812235800157561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28A389E2812235800157561 /* Main.storyboard */; };
 		B28A38A22812235A00157561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B28A38A12812235A00157561 /* Assets.xcassets */; };
 		B28A38A52812235A00157561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28A38A32812235A00157561 /* LaunchScreen.storyboard */; };
+		B28A38AD2812238300157561 /* Fruits.csv in Resources */ = {isa = PBXBuildFile; fileRef = B28A38AC2812238300157561 /* Fruits.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B28A38A12812235A00157561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B28A38A42812235A00157561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B28A38A62812235A00157561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B28A38AC2812238300157561 /* Fruits.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fruits.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				B28A389A2812235800157561 /* SceneDelegate.swift */,
 				B28A389C2812235800157561 /* ViewController.swift */,
 				B28A389E2812235800157561 /* Main.storyboard */,
+				B28A38AC2812238300157561 /* Fruits.csv */,
 				B28A38A12812235A00157561 /* Assets.xcassets */,
 				B28A38A32812235A00157561 /* LaunchScreen.storyboard */,
 				B28A38A62812235A00157561 /* Info.plist */,
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B28A38A52812235A00157561 /* LaunchScreen.storyboard in Resources */,
+				B28A38AD2812238300157561 /* Fruits.csv in Resources */,
 				B28A38A22812235A00157561 /* Assets.xcassets in Resources */,
 				B28A38A02812235800157561 /* Main.storyboard in Resources */,
 			);
