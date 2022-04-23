@@ -57,4 +57,15 @@ extension MixJuice {
             createdAt: object.createdAt
         )
     }
+    func managedObject() -> RealmMixJuice {
+        let realmMixJuice = RealmMixJuice()
+        realmMixJuice.uuidString = self.id.uuidString
+        realmMixJuice.fruit1 = self.fruit1
+        realmMixJuice.fruit2 = self.fruit2
+        realmMixJuice.fruit3 = self.fruit3
+        realmMixJuice.fruit4 = self.fruit4
+        realmMixJuice.fruit5 = self.fruit5
+        realmMixJuice.createdAt = self.createdAt
+        return realmMixJuice
+    }
 }

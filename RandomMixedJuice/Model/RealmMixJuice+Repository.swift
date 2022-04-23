@@ -31,3 +31,43 @@ protocol MixJuiceRepositoryProtocol {
     func updateMixJuice(mixJuice: MixJuice)
     func removeMixJuice(mixJuice: MixJuice)
 }
+
+struct RealmMixJuiceRepository: MixJuiceRepositoryProtocol {
+    private let realm = try! Realm()
+
+    func allLoadMixJuice(sortKey: String, ascending: Bool) -> [MixJuice] {
+        let allRealmMixJuice = realm.objects(RealmMixJuice.self)
+            .sorted(byKeyPath: sortKey, ascending: ascending)
+        let realmMixJuiceArray = Array(allRealmMixJuice)
+        let allMixJuice = realmMixJuiceArray.map {MixJuice(object: $0)! }
+        return allMixJuice
+    }
+
+    func addMixJuice(mixJuice: MixJuice) {
+        try! realm.write {
+            realm.add(mixJuice.managedObject())
+        }
+    }
+
+    func updateMixJuice(mixJuice: MixJuice) {
+        try! realm.write {
+            let realmMixJuice = realm.object(ofType: RealmMixJuice.self, forPrimaryKey: mixJuice.id.uuidString)
+            realmMixJuice?.fruit1 = mixJuice.fruit1
+            realmMixJuice?.fruit2 = mixJuice.fruit2
+            realmMixJuice?.fruit3 = mixJuice.fruit3
+            realmMixJuice?.fruit4 = mixJuice.fruit4
+            realmMixJuice?.fruit5 = mixJuice.fruit5
+            realmMixJuice?.createdAt = mixJuice.createdAt
+        }
+    }
+
+    func removeMixJuice(mixJuice: MixJuice) {
+        guard  let realmMixJuice = realm.object(
+            ofType: RealmMixJuice.self,
+            forPrimaryKey: mixJuice.id.uuidString
+        ) else { return }
+        try! realm.write {
+            realm.delete(realmMixJuice)
+        }
+    }
+}
