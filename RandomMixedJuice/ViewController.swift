@@ -8,6 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    enum RandomState {
+        case start
+        case stop
+    }
+
     @IBOutlet weak private var resultFruit1Label: UILabel!
     @IBOutlet weak private var resultFruit2Label: UILabel!
     @IBOutlet weak private var resultFruit3Label: UILabel!
@@ -18,29 +23,22 @@ class ViewController: UIViewController {
     @IBOutlet weak private var fruitCheckButton3: UIButton!
     @IBOutlet weak private var fruitCheckButton4: UIButton!
     @IBOutlet weak private var fruitCheckButton5: UIButton!
-    private var isCheckfruit1 = false
-    private var isCheckfruit2 = false
-    private var isCheckfruit3 = false
-    private var isCheckfruit4 = false
-    private var isCheckfruit5 = false
 
-    var fruitCheckButtons:[UIButton] {[
-        fruitCheckButton1,
-        fruitCheckButton2,
-        fruitCheckButton3,
-        fruitCheckButton4,
-        fruitCheckButton5
-    ]}
+    var fruitCheckButtons:[UIButton] {
+        [
+            fruitCheckButton1,
+            fruitCheckButton2,
+            fruitCheckButton3,
+            fruitCheckButton4,
+            fruitCheckButton5
+        ]
+    }
     var fruitIsChecks: [Bool] = [false,false,false,false,false]
     var fruitCheckArrayIndex: [Int] = Array(0...4)
 
     private var fruitButtonsNumberDictionary: [UIButton: Int] {
         [UIButton: Int](uniqueKeysWithValues: zip(fruitCheckButtons, fruitCheckArrayIndex))
     }
-//
-//    private var fruitIsChecksNumberDictionary: [Int: Bool] {
-//        [Int: Bool](uniqueKeysWithValues: zip(fruitCheckNumber, fruitIsChecks))
-//    }
 
     private var fruitsLines: [String] = []
     private var resultFruit1: String = ""
@@ -48,13 +46,16 @@ class ViewController: UIViewController {
     private var resultFruit3: String = ""
     private var resultFruit4: String = ""
     private var resultFruit5: String = ""
+    var resultsFruit: [String] = []
 
     var btnTimer: Timer!
+
+
+    var randomState: RandomState = .stop
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewButton()
-
         guard let path = Bundle.main.path(forResource:"Fruits", ofType:"csv") else {
             print("csvファイルがないよ")
             return
@@ -67,12 +68,28 @@ class ViewController: UIViewController {
 
 
     @objc func changefruit(){
-        resultFruit1 = fruitsLines.randomElement()!
-        resultFruit2 = fruitsLines.randomElement()!
-        resultFruit3 = fruitsLines.randomElement()!
-        resultFruit4 = fruitsLines.randomElement()!
-        resultFruit5 = fruitsLines.randomElement()!
-        configureViewLabel()
+        randomState = .start
+        switch randomState {
+        case .start:
+            var count = 1
+            resultsFruit = []
+            while count < 6 {
+                let randomFruit = fruitsLines.randomElement()!
+                let filterResultsFruit = resultsFruit.filter { randomFruit == $0 }
+                if filterResultsFruit.isEmpty {
+                    resultsFruit.append(randomFruit)
+                    count += 1
+                }
+            }
+            resultFruit1 = resultsFruit[0]
+            resultFruit2 = resultsFruit[1]
+            resultFruit3 = resultsFruit[2]
+            resultFruit4 = resultsFruit[3]
+            resultFruit5 = resultsFruit[4]
+            configureViewLabel()
+        case .stop:
+            break
+        }
     }
 
     @IBAction func randomStart(_ sender: Any) {
@@ -101,6 +118,7 @@ class ViewController: UIViewController {
         fruitCheckButtons.forEach { uiButton in
             uiButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
             uiButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
+
         }
     }
 }
