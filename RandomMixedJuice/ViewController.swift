@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak private var fruitCheckButton4: UIButton!
     @IBOutlet weak private var fruitCheckButton5: UIButton!
 
-    var fruitCheckButtons:[UIButton] {
+    var fruitCheckButtons: [UIButton] {
         [
             fruitCheckButton1,
             fruitCheckButton2,
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             fruitCheckButton5
         ]
     }
-    var fruitIsChecks: [Bool] = [false,false,false,false,false]
+    var fruitIsChecks: [Bool] = [false, false, false, false, false]
     var fruitCheckArrayIndex: [Int] = Array(0...4)
 
     private var fruitButtonsNumberDictionary: [UIButton: Int] {
@@ -50,13 +50,12 @@ class ViewController: UIViewController {
 
     var btnTimer: Timer!
 
-
     var randomState: RandomState = .stop
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewButton()
-        guard let path = Bundle.main.path(forResource:"Fruits", ofType:"csv") else {
+        guard let path = Bundle.main.path(forResource: "Fruits", ofType: "csv" ) else {
             print("csvファイルがないよ")
             return
         }
@@ -65,9 +64,7 @@ class ViewController: UIViewController {
         let newCVSLines = csvLines.filter { $0 != "" }
         fruitsLines = newCVSLines
     }
-
-
-    @objc func changefruit(){
+    @objc func changefruit() {
         randomState = .start
         switch randomState {
         case .start:
@@ -92,21 +89,24 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func randomStart(_ sender: Any) {
-        self.btnTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self,selector: #selector(self.changefruit), userInfo: nil, repeats: true)
+    @IBAction private func randomStart(_ sender: Any) {
+        self.btnTimer = Timer.scheduledTimer(
+            timeInterval: 0.1,
+            target: self,
+            selector: #selector(self.changefruit),
+            userInfo: nil, repeats: true
+        )
     }
 
-    @IBAction func randomStop(_ sender: Any) {
+    @IBAction private func randomStop(_ sender: Any) {
         self.btnTimer!.invalidate()
         configureViewLabel()
     }
 
-    @IBAction func fruitCheckButton(_ sender: UIButton) {
+    @IBAction private func fruitCheckButton(_ sender: UIButton) {
         sender.isSelected.toggle()
     }
-
-
-    func configureViewLabel() {
+    private func configureViewLabel() {
         resultFruit1Label.text = resultFruit1
         resultFruit2Label.text = resultFruit2
         resultFruit3Label.text = resultFruit3
@@ -114,12 +114,10 @@ class ViewController: UIViewController {
         resultFruit5Label.text = resultFruit5
     }
 
-    func configureViewButton() {
+    private func configureViewButton() {
         fruitCheckButtons.forEach { uiButton in
             uiButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
             uiButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
-
         }
     }
 }
-
