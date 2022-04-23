@@ -42,30 +42,4 @@ extension MixJuice {
         self.fruit5 = fruit5
         self.createdAt = createdAt
     }
-
-    init?(object: RealmMixJuice) {
-        guard let uuid = UUID(uuidString: object.uuidString) else {
-            return nil
-        }
-        self.init(
-            id: .init(rawValue: uuid),
-            fruit1: object.fruit1,
-            fruit2: object.fruit2,
-            fruit3: object.fruit3,
-            fruit4: object.fruit4,
-            fruit5: object.fruit5,
-            createdAt: object.createdAt
-        )
-    }
-    func managedObject() -> RealmMixJuice {
-        let realmMixJuice = RealmMixJuice()
-        realmMixJuice.uuidString = self.id.uuidString
-        realmMixJuice.fruit1 = self.fruit1
-        realmMixJuice.fruit2 = self.fruit2
-        realmMixJuice.fruit3 = self.fruit3
-        realmMixJuice.fruit4 = self.fruit4
-        realmMixJuice.fruit5 = self.fruit5
-        realmMixJuice.createdAt = self.createdAt
-        return realmMixJuice
-    }
 }

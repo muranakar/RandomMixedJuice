@@ -28,23 +28,4 @@ extension Fruit {
     ) {
         self.init(id: .init(rawValue: UUID()), name: name, createdAt: createdAt)
     }
-
-    init?(object: RealmFruit) {
-        guard let uuid = UUID(uuidString: object.uuidString) else {
-            return nil
-        }
-        self.init(
-            id: .init(rawValue: uuid),
-            name: object.name,
-            createdAt: object.createdAt
-        )
-    }
-
-    func managedObject() -> RealmFruit {
-        let realmFruit = RealmFruit()
-        realmFruit.uuidString = self.id.uuidString
-        realmFruit.name = self.name
-        realmFruit.createdAt = self.createdAt
-        return realmFruit
-    }
 }
