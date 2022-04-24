@@ -114,6 +114,17 @@
                                     <action selector="randomStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="egi-8b-8Dm"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5rM-n2-eEo">
+                                <rect key="frame" x="90" y="495" width="193" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -131,6 +142,7 @@
                         <outlet property="fruitCheckButton3" destination="riY-Sb-GBn" id="1wS-z0-3w0"/>
                         <outlet property="fruitCheckButton4" destination="GQW-GN-iGg" id="r47-6r-bTD"/>
                         <outlet property="fruitCheckButton5" destination="she-sz-c1X" id="zMf-Xh-ZJe"/>
+                        <outlet property="randomCountSegmentedControl" destination="5rM-n2-eEo" id="hho-iR-ZbO"/>
                         <outlet property="resultFruit1Label" destination="axz-9z-VYY" id="sR4-1W-vHg"/>
                         <outlet property="resultFruit2Label" destination="XXd-A9-wQg" id="005-dA-Vfi"/>
                         <outlet property="resultFruit3Label" destination="LAk-VY-h2j" id="njC-aN-qG9"/>

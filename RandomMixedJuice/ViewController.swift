@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     @IBOutlet weak private var fruitCheckButton3: UIButton!
     @IBOutlet weak private var fruitCheckButton4: UIButton!
     @IBOutlet weak private var fruitCheckButton5: UIButton!
+
+    @IBOutlet weak private var randomCountSegmentedControl: UISegmentedControl!
     @IBOutlet weak private var startButton: UIButton!
     @IBOutlet weak private var stopButton: UIButton!
 
@@ -46,40 +48,17 @@ class ViewController: UIViewController {
         ]
     }
 
-    var resultFruits: [String] {
-        [
-            resultFruit1,
-            resultFruit2,
-            resultFruit3,
-            resultFruit4,
-            resultFruit5
-        ]
-    }
     var fruitIsChecks: [Bool] = [false, false, false, false, false]
     var fruitCheckArrayIndex: [Int] = Array(0...4)
 
-    private var fruitButtonsNumberDictionary: [UIButton: String] {
-        [UIButton: String](uniqueKeysWithValues: zip(fruitCheckButtons, resultFruits))
-    }
     private var fruitButtonsAndResultLabelDictionary: [UIButton: UILabel] {
         [UIButton: UILabel](uniqueKeysWithValues: zip(fruitCheckButtons, resultFruitLabels))
     }
 
     private var fruitsLines: [String] = []
-    private var resultFruit1: String = ""
-    private var resultFruit2: String = ""
-    private var resultFruit3: String = ""
-    private var resultFruit4: String = ""
-    private var resultFruit5: String = ""
-    var allResultFruits: [String] = []
-    var resultFruitsIsSelected: [String] = []
-
-
-    var btnTimer: Timer!
-
-    var randomState: RandomState = .stop
-
-    var isCheckCount: Int = 5
+    private var allResultFruits: [String] = []
+    private var btnTimer: Timer!
+    private var randomState: RandomState = .stop
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,23 +73,22 @@ class ViewController: UIViewController {
         fruitsLines = newCVSLines
     }
 
-    @IBAction func save(_ sender: Any) {
-        //選択されたボタン
+    @IBAction private func save(_ sender: Any) {
+        // 選択されたボタン
 
-        //選択されたボタンから、Resultの値を取得
+        // 選択されたボタンから、Resultの値を取得
 
-        //Resultの値を、配列に追加
+        // Resultの値を、配列に追加
 
-        //その値を保存する。
+        // その値を保存する。
 
-        //履歴を閲覧するボタンは別のボタンで画面遷移
-
-        resultFruitsIsSelected
+        // 履歴を閲覧するボタンは別のボタンで画面遷移
     }
 
     @IBAction private func randomStart(_ sender: Any) {
         randomState = .start
         configueButtonIsEnable()
+        resultFruitLabels.forEach { $0.text = "" }
         switch randomState {
         case .start:
             self.btnTimer = Timer.scheduledTimer(
@@ -125,22 +103,18 @@ class ViewController: UIViewController {
     }
 
     @objc func changefruit() {
-        var count = 1
         allResultFruits = []
-        while count < 6 {
-            let randomFruit = fruitsLines.randomElement()!
-            let filterResultsFruit = allResultFruits.filter { randomFruit == $0 }
-            if filterResultsFruit.isEmpty {
-                allResultFruits.append(randomFruit)
-                count += 1
-            }
-        }
-        resultFruit1 = allResultFruits[0]
-        resultFruit2 = allResultFruits[1]
-        resultFruit3 = allResultFruits[2]
-        resultFruit4 = allResultFruits[3]
-        resultFruit5 = allResultFruits[4]
+        pickupRandomFruitsAndConfigureResultFruit1(elements: randomCountSegmentedControl.selectedSegmentIndex + 1)
         configureViewLabel()
+    }
+
+    func pickupRandomFruitsAndConfigureResultFruit1(elements: Int) {
+        var count = 0
+        allResultFruits = Set(fruitsLines).pickup(elements: elements)
+        allResultFruits.forEach { resultFruit in
+            resultFruitLabels[count].text = resultFruit
+            count += 1
+        }
     }
 
     @IBAction private func randomStop(_ sender: Any) {
@@ -153,6 +127,7 @@ class ViewController: UIViewController {
             self.btnTimer!.invalidate()
             configureViewLabel()
         }
+        print(allResultFruits)
     }
 
     @IBAction private func fruitCheckButton(_ sender: UIButton) {
@@ -163,12 +138,16 @@ class ViewController: UIViewController {
             fruitButtonsAndResultLabelDictionary[sender]?.isHidden = false
         }
     }
+
     private func configureViewLabel() {
-        resultFruit1Label.text = resultFruit1
-        resultFruit2Label.text = resultFruit2
-        resultFruit3Label.text = resultFruit3
-        resultFruit4Label.text = resultFruit4
-        resultFruit5Label.text = resultFruit5
+        var count = 0
+        resultFruitLabels.forEach { label in
+            label.text = ""
+        }
+        allResultFruits.forEach { resultFruit in
+            resultFruitLabels[count].text = resultFruit
+            count += 1
+        }
     }
 
     private func configureViewButton() {
@@ -187,5 +166,19 @@ class ViewController: UIViewController {
             startButton.isEnabled = true
             stopButton.isEnabled = false
         }
+    }
+}
+
+private extension Set {
+    func pickup(elements number: Int) -> [Element] {
+        guard number < count else {
+            return shuffled()
+        }
+        var results = Set(), temp = self
+        while results.count < number, let element = temp.randomElement() {
+            results.insert(element)
+            temp.remove(element)
+        }
+        return Array(results)
     }
 }
