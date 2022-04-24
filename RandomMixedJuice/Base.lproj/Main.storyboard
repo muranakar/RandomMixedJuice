@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lrb-gP-krz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -118,6 +118,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="W1x-8P-k8m">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YkU-NX-qTy">
+                            <connections>
+                                <action selector="save:" destination="BYZ-38-t0r" id="9Kv-kV-p1o"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="fruitCheckButton1" destination="D8n-uS-VGU" id="ANC-IQ-3ji"/>
                         <outlet property="fruitCheckButton2" destination="Wso-Vs-PJm" id="Sid-wn-jpw"/>
@@ -129,9 +136,29 @@
                         <outlet property="resultFruit3Label" destination="LAk-VY-h2j" id="njC-aN-qG9"/>
                         <outlet property="resultFruit4Label" destination="7WF-iy-Wao" id="xGN-ek-JCi"/>
                         <outlet property="resultFruit5Label" destination="Kjl-WW-T49" id="Mus-Zb-acl"/>
+                        <outlet property="startButton" destination="C9L-A1-W3M" id="Zcs-ZI-id7"/>
+                        <outlet property="stopButton" destination="3zv-3f-JLN" id="mbf-7w-zZs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="32.8125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cbR-hX-Dtb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lrb-gP-krz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C7v-rs-FPU">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ewg-go-ELg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgL-dU-24R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="32.8125"/>
         </scene>

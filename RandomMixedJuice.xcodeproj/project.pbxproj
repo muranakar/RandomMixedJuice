@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		422758FC5B6CD680AA15F76B /* Pods_RandomMixedJuice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77142681063E1AB37327B24 /* Pods_RandomMixedJuice.framework */; };
 		B28A38992812235800157561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A38982812235800157561 /* AppDelegate.swift */; };
-		B28A389B2812235800157561 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A389A2812235800157561 /* SceneDelegate.swift */; };
 		B28A389D2812235800157561 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A389C2812235800157561 /* ViewController.swift */; };
 		B28A38A02812235800157561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28A389E2812235800157561 /* Main.storyboard */; };
 		B28A38A22812235A00157561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B28A38A12812235A00157561 /* Assets.xcassets */; };
@@ -17,6 +16,7 @@
 		B28A38AD2812238300157561 /* Fruits.csv in Resources */ = {isa = PBXBuildFile; fileRef = B28A38AC2812238300157561 /* Fruits.csv */; };
 		B28D39C128149E6F0046360D /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C028149E6F0046360D /* Fruit.swift */; };
 		B28D39C32814A0B20046360D /* RealmFruit+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C22814A0B20046360D /* RealmFruit+Repository.swift */; };
+		B28D39C52814B9660046360D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C42814B9660046360D /* SceneDelegate.swift */; };
 		B2B26C6F2813B88600D65379 /* MixJuice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B26C6E2813B88600D65379 /* MixJuice.swift */; };
 		B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */; };
 /* End PBXBuildFile section */
@@ -26,7 +26,6 @@
 		653DFF810EFA6E7408039198 /* Pods-RandomMixedJuice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMixedJuice.release.xcconfig"; path = "Target Support Files/Pods-RandomMixedJuice/Pods-RandomMixedJuice.release.xcconfig"; sourceTree = "<group>"; };
 		B28A38952812235800157561 /* RandomMixedJuice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomMixedJuice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B28A38982812235800157561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B28A389A2812235800157561 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B28A389C2812235800157561 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B28A389F2812235800157561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B28A38A12812235A00157561 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 		B28A38AC2812238300157561 /* Fruits.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fruits.csv; sourceTree = "<group>"; };
 		B28D39C028149E6F0046360D /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		B28D39C22814A0B20046360D /* RealmFruit+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmFruit+Repository.swift"; sourceTree = "<group>"; };
+		B28D39C42814B9660046360D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B2B26C6E2813B88600D65379 /* MixJuice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixJuice.swift; sourceTree = "<group>"; };
 		B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmMixJuice+Repository.swift"; sourceTree = "<group>"; };
 		E77142681063E1AB37327B24 /* Pods_RandomMixedJuice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMixedJuice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B28A38982812235800157561 /* AppDelegate.swift */,
-				B28A389A2812235800157561 /* SceneDelegate.swift */,
+				B28D39C42814B9660046360D /* SceneDelegate.swift */,
 				B2C482B028143453009ACD9D /* Model */,
 				B28A389C2812235800157561 /* ViewController.swift */,
 				B28A389E2812235800157561 /* Main.storyboard */,
@@ -250,10 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B28D39C128149E6F0046360D /* Fruit.swift in Sources */,
+				B28D39C52814B9660046360D /* SceneDelegate.swift in Sources */,
 				B28A389D2812235800157561 /* ViewController.swift in Sources */,
 				B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */,
 				B28A38992812235800157561 /* AppDelegate.swift in Sources */,
-				B28A389B2812235800157561 /* SceneDelegate.swift in Sources */,
 				B2B26C6F2813B88600D65379 /* MixJuice.swift in Sources */,
 				B28D39C32814A0B20046360D /* RealmFruit+Repository.swift in Sources */,
 			);
