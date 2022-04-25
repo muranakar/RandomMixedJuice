@@ -51,69 +51,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8n-uS-VGU">
-                                <rect key="frame" x="271" y="110" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="checkmark.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="fruitCheckButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ttQ-in-VKo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wso-Vs-PJm">
-                                <rect key="frame" x="267" y="194" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="checkmark.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="fruitCheckButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uaz-Nv-8W6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riY-Sb-GBn">
-                                <rect key="frame" x="271" y="286" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="checkmark.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="fruitCheckButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sve-VD-cig"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQW-GN-iGg">
-                                <rect key="frame" x="267" y="362" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="checkmark.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="fruitCheckButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wLA-Al-5wY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="she-sz-c1X">
-                                <rect key="frame" x="271" y="438" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button" image="checkmark.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="fruitCheckButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lyr-rw-KG4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9L-A1-W3M">
-                                <rect key="frame" x="74" y="514" width="224" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="start"/>
-                                <connections>
-                                    <action selector="randomStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KyK-Mw-AlU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-3f-JLN">
-                                <rect key="frame" x="74" y="619" width="224" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="stop"/>
-                                <connections>
-                                    <action selector="randomStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="egi-8b-8Dm"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5rM-n2-eEo">
                                 <rect key="frame" x="90" y="495" width="193" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -125,6 +62,15 @@
                                     <segment title="5"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9L-A1-W3M">
+                                <rect key="frame" x="74" y="561" width="224" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="start"/>
+                                <connections>
+                                    <action selector="randomStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KyK-Mw-AlU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -137,24 +83,27 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="fruitCheckButton1" destination="D8n-uS-VGU" id="ANC-IQ-3ji"/>
-                        <outlet property="fruitCheckButton2" destination="Wso-Vs-PJm" id="Sid-wn-jpw"/>
-                        <outlet property="fruitCheckButton3" destination="riY-Sb-GBn" id="1wS-z0-3w0"/>
-                        <outlet property="fruitCheckButton4" destination="GQW-GN-iGg" id="r47-6r-bTD"/>
-                        <outlet property="fruitCheckButton5" destination="she-sz-c1X" id="zMf-Xh-ZJe"/>
                         <outlet property="randomCountSegmentedControl" destination="5rM-n2-eEo" id="hho-iR-ZbO"/>
                         <outlet property="resultFruit1Label" destination="axz-9z-VYY" id="sR4-1W-vHg"/>
                         <outlet property="resultFruit2Label" destination="XXd-A9-wQg" id="005-dA-Vfi"/>
                         <outlet property="resultFruit3Label" destination="LAk-VY-h2j" id="njC-aN-qG9"/>
                         <outlet property="resultFruit4Label" destination="7WF-iy-Wao" id="xGN-ek-JCi"/>
                         <outlet property="resultFruit5Label" destination="Kjl-WW-T49" id="Mus-Zb-acl"/>
-                        <outlet property="startButton" destination="C9L-A1-W3M" id="Zcs-ZI-id7"/>
-                        <outlet property="stopButton" destination="3zv-3f-JLN" id="mbf-7w-zZs"/>
+                        <outlet property="saveBarButtonItem" destination="YkU-NX-qTy" id="Yhy-3G-N2y"/>
+                        <outlet property="startStopButton" destination="C9L-A1-W3M" id="etH-os-uDG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="32.8125"/>
+        </scene>
+        <!--Fruits-->
+        <scene sceneID="FGz-q1-gta">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Fruits" id="xHv-Ge-mrX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vf3-Pu-XIY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="38"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cbR-hX-Dtb">
@@ -176,7 +125,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

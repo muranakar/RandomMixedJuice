@@ -17,6 +17,9 @@
 		B28D39C128149E6F0046360D /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C028149E6F0046360D /* Fruit.swift */; };
 		B28D39C32814A0B20046360D /* RealmFruit+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C22814A0B20046360D /* RealmFruit+Repository.swift */; };
 		B28D39C52814B9660046360D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C42814B9660046360D /* SceneDelegate.swift */; };
+		B28F5E002816DB74005C55C1 /* FruitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F5DFF2816DB74005C55C1 /* FruitsViewController.swift */; };
+		B28F5E022816DB8A005C55C1 /* Fruits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28F5E012816DB8A005C55C1 /* Fruits.storyboard */; };
+		B28F5E042816DC7C005C55C1 /* FruitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */; };
 		B2B26C6F2813B88600D65379 /* MixJuice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B26C6E2813B88600D65379 /* MixJuice.swift */; };
 		B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +38,9 @@
 		B28D39C028149E6F0046360D /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		B28D39C22814A0B20046360D /* RealmFruit+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmFruit+Repository.swift"; sourceTree = "<group>"; };
 		B28D39C42814B9660046360D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B28F5DFF2816DB74005C55C1 /* FruitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsViewController.swift; sourceTree = "<group>"; };
+		B28F5E012816DB8A005C55C1 /* Fruits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fruits.storyboard; sourceTree = "<group>"; };
+		B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsTableViewCell.swift; sourceTree = "<group>"; };
 		B2B26C6E2813B88600D65379 /* MixJuice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixJuice.swift; sourceTree = "<group>"; };
 		B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmMixJuice+Repository.swift"; sourceTree = "<group>"; };
 		E77142681063E1AB37327B24 /* Pods_RandomMixedJuice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMixedJuice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,9 @@
 				B28D39C42814B9660046360D /* SceneDelegate.swift */,
 				B2C482B028143453009ACD9D /* Model */,
 				B28A389C2812235800157561 /* ViewController.swift */,
+				B28F5DFF2816DB74005C55C1 /* FruitsViewController.swift */,
+				B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */,
+				B28F5E012816DB8A005C55C1 /* Fruits.storyboard */,
 				B28A389E2812235800157561 /* Main.storyboard */,
 				B28A38AC2812238300157561 /* Fruits.csv */,
 				B28A38A12812235A00157561 /* Assets.xcassets */,
@@ -175,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28F5E022816DB8A005C55C1 /* Fruits.storyboard in Resources */,
 				B28A38A52812235A00157561 /* LaunchScreen.storyboard in Resources */,
 				B28A38AD2812238300157561 /* Fruits.csv in Resources */,
 				B28A38A22812235A00157561 /* Assets.xcassets in Resources */,
@@ -250,8 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B28D39C128149E6F0046360D /* Fruit.swift in Sources */,
+				B28F5E002816DB74005C55C1 /* FruitsViewController.swift in Sources */,
 				B28D39C52814B9660046360D /* SceneDelegate.swift in Sources */,
 				B28A389D2812235800157561 /* ViewController.swift in Sources */,
+				B28F5E042816DC7C005C55C1 /* FruitsTableViewCell.swift in Sources */,
 				B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */,
 				B28A38992812235800157561 /* AppDelegate.swift in Sources */,
 				B2B26C6F2813B88600D65379 /* MixJuice.swift in Sources */,
