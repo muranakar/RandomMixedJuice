@@ -8,7 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak private var saveBarButtonItem: UIBarButtonItem!
+    enum Mode {
+        case initial
+        case start
+        case stop
+    }
+    let fruitRepository: FruitRepositoryProtocol = RealmFruitRepository()
+    @IBOutlet weak private var fruitTextField: UITextField!
+    @IBOutlet weak var fruitAddButton: UIButton!
     @IBOutlet weak private var resultFruit1Label: UILabel!
     @IBOutlet weak private var resultFruit2Label: UILabel!
     @IBOutlet weak private var resultFruit3Label: UILabel!
@@ -16,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak private var resultFruit5Label: UILabel!
     @IBOutlet weak private var randomCountSegmentedControl: UISegmentedControl!
     @IBOutlet weak private var startStopButton: UIButton!
+    @IBOutlet weak var fruitsListButton: UIButton!
     var resultFruitLabels: [UILabel] {
         [
             resultFruit1Label,
@@ -25,43 +33,34 @@ class ViewController: UIViewController {
             resultFruit5Label
         ]
     }
-    private var fruitsLines: [String] = []
+    private var loadedFruitNamesFromLocalDataBase: [String] {
+        let fruits = fruitRepository.allLoadFruit(sortKey: "createdAt", ascending: true)
+        return fruits.map { $0.name }
+    }
+    private var fruitNamesArray: [String] = []
     private var allResultFruits: [String] = []
     private var btnTimer: Timer!
+    private var mode: Mode = .initial
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configueViewStartStopButton()
-        saveBarButtonItem.isEnabled = false
-        guard let path = Bundle.main.path(
-            forResource: "Fruits",
-            ofType: "csv"
-        ) else {
-            print("csvファイルがない。")
-            return
-        }
-        let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-        let csvLines = csvString.components(separatedBy: "\r\n")
-        let newCVSLines = csvLines.filter { $0 != "" }
-        fruitsLines = newCVSLines
+        resetFruitNamesArrayAndAddFruitFromCsv()
     }
 
-    @IBAction private func save(_ sender: Any) {
-        // 選択されたボタン
-
-        // 選択されたボタンから、Resultの値を取得
-
-        // Resultの値を、配列に追加
-
-        // その値を保存する。
-
-        // 履歴を閲覧するボタンは別のボタンで画面遷移
+    @IBAction private func addFruit(_ sender: Any) {
+        let fruitName = fruitTextField.text ?? ""
+        if fruitName == "" { return }
+        let fruit = Fruit(id: Fruit.ID(rawValue: UUID()), name: fruitName)
+        fruitRepository.addFruit(fruit: fruit)
     }
 
     @IBAction private func randomStart(_ sender: Any) {
         if !startStopButton.isSelected {
             startStopButton.isSelected = true
-            saveBarButtonItem.isEnabled = false
+            mode = .start
+            configureViewIsEnableButton()
+            resetFruitNamesArrayAndAddFruitFromCsv()
             resultFruitLabels.forEach { $0.text = "" }
             self.btnTimer = Timer.scheduledTimer(
                 timeInterval: 0.1,
@@ -70,12 +69,38 @@ class ViewController: UIViewController {
                 userInfo: nil, repeats: true
             )
         } else {
-            saveBarButtonItem.isEnabled = true
             startStopButton.isSelected = false
+            mode = .stop
             self.btnTimer!.invalidate()
             configureViewLabel()
+            configureViewIsEnableButton()
             print(allResultFruits)
         }
+    }
+
+    // MARK: - Method
+    private func resetFruitNamesArrayAndAddFruitFromCsv() {
+        if loadedFruitNamesFromLocalDataBase.isEmpty {
+            loadFruitNamesFromCsv().forEach { fruitName in
+                fruitRepository.addFruit(fruit: Fruit(id: Fruit.ID(rawValue: UUID()), name: fruitName))
+            }
+            fruitNamesArray = loadFruitNamesFromCsv()
+        }
+        fruitNamesArray.append(contentsOf: loadedFruitNamesFromLocalDataBase)
+    }
+
+    private func loadFruitNamesFromCsv() -> [String] {
+        guard let path = Bundle.main.path(
+            forResource: "Fruits",
+            ofType: "csv"
+        ) else {
+            print("csvファイルがない。")
+            fatalError()
+        }
+        let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        let csvLines = csvString.components(separatedBy: "\r\n")
+        let newCVSLines = csvLines.filter { $0 != "" }
+        return newCVSLines
     }
 
     @objc func changefruit() {
@@ -86,7 +111,7 @@ class ViewController: UIViewController {
 
     func pickupRandomFruitsAndConfigureResultFruit1(elements: Int) {
         var count = 0
-        allResultFruits = Set(fruitsLines).pickup(elements: elements)
+        allResultFruits = Set(fruitNamesArray).pickup(elements: elements)
         allResultFruits.forEach { resultFruit in
             resultFruitLabels[count].text = resultFruit
             count += 1
@@ -103,10 +128,48 @@ class ViewController: UIViewController {
             count += 1
         }
     }
-
+    // 現在使用していないメソッド
+    private func createMixJuiceStruct(resultFruits: [String]) -> MixJuice {
+        let index = resultFruits.count - 1
+        switch index {
+        case 0:
+            return MixJuice(id: MixJuice.ID(rawValue: UUID()), fruit1: resultFruits[0])
+        case 1:
+            return MixJuice(id: MixJuice.ID(rawValue: UUID()), fruit1: resultFruits[0], fruit2: resultFruits[1])
+        case 2:
+            return MixJuice(id: MixJuice.ID(rawValue: UUID()),
+                            fruit1: resultFruits[0], fruit2: resultFruits[1],
+                            fruit3: resultFruits[2])
+        case 3:
+            return MixJuice(id: MixJuice.ID(rawValue: UUID()),
+                            fruit1: resultFruits[0], fruit2: resultFruits[1],
+                            fruit3: resultFruits[2], fruit4: resultFruits[3])
+        case 4:
+            return MixJuice(id: MixJuice.ID(rawValue: UUID()),
+                            fruit1: resultFruits[0], fruit2: resultFruits[1],
+                            fruit3: resultFruits[2], fruit4: resultFruits[3],
+                            fruit5: resultFruits[4])
+        default:
+            fatalError()
+        }
+    }
+    // MARK: - View
     private func configueViewStartStopButton() {
         startStopButton.setTitle("スタート", for: .normal)
         startStopButton.setTitle("ストップ", for: .selected)
+    }
+    private func configureViewIsEnableButton() {
+        switch mode {
+        case .initial:
+            fruitAddButton.isEnabled = true
+            fruitsListButton.isEnabled = true
+        case .start:
+            fruitAddButton.isEnabled = false
+            fruitsListButton.isEnabled = false
+        case .stop:
+            fruitAddButton.isEnabled = true
+            fruitsListButton.isEnabled = true
+        }
     }
 }
 

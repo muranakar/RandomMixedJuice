@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lrb-gP-krz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -62,8 +62,23 @@
                                     <segment title="5"/>
                                 </segments>
                             </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFV-Nn-n2t">
+                                <rect key="frame" x="74" y="59" width="210" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K36-Pk-ntQ">
+                                <rect key="frame" x="311" y="59" width="53" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="追加"/>
+                                <connections>
+                                    <action selector="addFruit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="edd-GD-k0g"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9L-A1-W3M">
-                                <rect key="frame" x="74" y="561" width="224" height="97"/>
+                                <rect key="frame" x="81" y="561" width="210" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="start"/>
@@ -71,25 +86,32 @@
                                     <action selector="randomStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KyK-Mw-AlU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvl-Pd-IZj">
+                                <rect key="frame" x="124" y="647" width="124" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="果物リスト"/>
+                                <connections>
+                                    <segue destination="xHv-Ge-mrX" kind="presentation" id="aa3-Kc-pJm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="W1x-8P-k8m">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YkU-NX-qTy">
-                            <connections>
-                                <action selector="save:" destination="BYZ-38-t0r" id="9Kv-kV-p1o"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YkU-NX-qTy"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="fruitAddButton" destination="K36-Pk-ntQ" id="gPd-fK-Ejy"/>
+                        <outlet property="fruitTextField" destination="UFV-Nn-n2t" id="11m-Dr-lqC"/>
+                        <outlet property="fruitsListButton" destination="gvl-Pd-IZj" id="2RL-Xp-VIY"/>
                         <outlet property="randomCountSegmentedControl" destination="5rM-n2-eEo" id="hho-iR-ZbO"/>
                         <outlet property="resultFruit1Label" destination="axz-9z-VYY" id="sR4-1W-vHg"/>
                         <outlet property="resultFruit2Label" destination="XXd-A9-wQg" id="005-dA-Vfi"/>
                         <outlet property="resultFruit3Label" destination="LAk-VY-h2j" id="njC-aN-qG9"/>
                         <outlet property="resultFruit4Label" destination="7WF-iy-Wao" id="xGN-ek-JCi"/>
                         <outlet property="resultFruit5Label" destination="Kjl-WW-T49" id="Mus-Zb-acl"/>
-                        <outlet property="saveBarButtonItem" destination="YkU-NX-qTy" id="Yhy-3G-N2y"/>
                         <outlet property="startStopButton" destination="C9L-A1-W3M" id="etH-os-uDG"/>
                     </connections>
                 </viewController>
@@ -104,24 +126,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vf3-Pu-XIY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1639" y="38"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cbR-hX-Dtb">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lrb-gP-krz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C7v-rs-FPU">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ewg-go-ELg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lgL-dU-24R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="32.8125"/>
         </scene>
     </scenes>
     <resources>

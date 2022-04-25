@@ -8,8 +8,6 @@
 import UIKit
 
 class FruitsTableViewCell: UITableViewCell {
-
-
     @IBOutlet private weak var fruitLabel: UILabel!
 
     func configureLabelText(text: String) {

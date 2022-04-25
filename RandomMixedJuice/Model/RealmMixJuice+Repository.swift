@@ -24,6 +24,7 @@ final class RealmMixJuice: Object {
     @Persisted
     var createdAt: Date = Date()
 }
+
 extension MixJuice {
     init?(object: RealmMixJuice) {
         guard let uuid = UUID(uuidString: object.uuidString) else {

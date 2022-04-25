@@ -18,7 +18,7 @@ struct Fruit {
     }
     var id: ID
     var name: String
-    var createdAt: Date
+    var createdAt: Date = Date()
 }
 
 extension Fruit {

@@ -8,24 +8,35 @@
 import UIKit
 
 class FruitsViewController: UIViewController {
+    private let repository: FruitRepositoryProtocol = RealmFruitRepository()
     @IBOutlet weak private var tableView: UITableView!
-
+    private var fruits: [Fruit] {
+        repository.allLoadFruit(sortKey: "createdAt", ascending: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
-extension FruitsViewController: UITableViewDelegate {
-}
-
 extension FruitsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        fruits.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FruitsTableViewCell
-        cell.configureLabelText(text: "tatata")
+        let fruitNames = fruits.map { $0.name }
+        cell.configureLabelText(text: fruitNames[indexPath.row])
         return cell
+    }
+}
+extension FruitsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let fruit = fruits[indexPath.row]
+        repository.removeFruit(fruit: fruit)
+        tableView.reloadData()
     }
 }
