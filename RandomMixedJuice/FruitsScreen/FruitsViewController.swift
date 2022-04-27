@@ -11,10 +11,39 @@ class FruitsViewController: UIViewController {
     private let repository: FruitRepositoryProtocol = RealmFruitRepository()
     @IBOutlet weak private var tableView: UITableView!
     private var fruits: [Fruit] {
-        repository.allLoadFruit(sortKey: "createdAt", ascending: true)
+        repository.allLoadFruit(sortKey: "createdAt", ascending: false)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    @IBAction private func reset(_ sender: Any) {
+        present(UIAlertController.resetFruit(
+            reset: { [weak self]  ( _ : UIAlertAction!) in
+                self?.removeAllFruitsFromLocalDatabaseAndAddFruitFromCsv()
+                self?.tableView.reloadData()
+            }),
+                animated: true
+        )
+    }
+    private func removeAllFruitsFromLocalDatabaseAndAddFruitFromCsv() {
+        fruits.forEach { fruit in
+            repository.removeFruit(fruit: fruit)
+        }
+        loadFruitNamesFromCsv().forEach { fruitName in
+            repository.addFruit(fruit: Fruit(id: Fruit.ID(rawValue: UUID()), name: fruitName))
+        }
+    }
+
+    private func loadFruitNamesFromCsv() -> [String] {
+        guard let path = Bundle.main.path(
+            forResource: "Fruits",
+            ofType: "csv"
+        ) else {
+            print("csvファイルがない。")
+            fatalError()
+        }
+        let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        let csvLines = csvString.components(separatedBy: "\r\n")
+        let newCVSLines = csvLines.filter { $0 != "" }
+        return newCVSLines
     }
 }
 

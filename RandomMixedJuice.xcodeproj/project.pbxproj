@@ -14,14 +14,17 @@
 		B28A38A22812235A00157561 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B28A38A12812235A00157561 /* Assets.xcassets */; };
 		B28A38A52812235A00157561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28A38A32812235A00157561 /* LaunchScreen.storyboard */; };
 		B28A38AD2812238300157561 /* Fruits.csv in Resources */ = {isa = PBXBuildFile; fileRef = B28A38AC2812238300157561 /* Fruits.csv */; };
+		B28CAD5B281898A600EE84F3 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CAD5A281898A600EE84F3 /* CommonButton.swift */; };
 		B28D39C128149E6F0046360D /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C028149E6F0046360D /* Fruit.swift */; };
 		B28D39C32814A0B20046360D /* RealmFruit+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C22814A0B20046360D /* RealmFruit+Repository.swift */; };
 		B28D39C52814B9660046360D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D39C42814B9660046360D /* SceneDelegate.swift */; };
 		B28F5E002816DB74005C55C1 /* FruitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F5DFF2816DB74005C55C1 /* FruitsViewController.swift */; };
 		B28F5E022816DB8A005C55C1 /* Fruits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28F5E012816DB8A005C55C1 /* Fruits.storyboard */; };
 		B28F5E042816DC7C005C55C1 /* FruitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */; };
+		B290A7DE2817666900BB7354 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290A7DD2817666900BB7354 /* UIAlertController.swift */; };
 		B2B26C6F2813B88600D65379 /* MixJuice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B26C6E2813B88600D65379 /* MixJuice.swift */; };
 		B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */; };
+		B2D46B5F2819745F00D4F1F5 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D46B5E2819745F00D4F1F5 /* StartStopButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,14 +38,17 @@
 		B28A38A42812235A00157561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B28A38A62812235A00157561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B28A38AC2812238300157561 /* Fruits.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fruits.csv; sourceTree = "<group>"; };
+		B28CAD5A281898A600EE84F3 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		B28D39C028149E6F0046360D /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 		B28D39C22814A0B20046360D /* RealmFruit+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmFruit+Repository.swift"; sourceTree = "<group>"; };
 		B28D39C42814B9660046360D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B28F5DFF2816DB74005C55C1 /* FruitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsViewController.swift; sourceTree = "<group>"; };
 		B28F5E012816DB8A005C55C1 /* Fruits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fruits.storyboard; sourceTree = "<group>"; };
 		B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsTableViewCell.swift; sourceTree = "<group>"; };
+		B290A7DD2817666900BB7354 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		B2B26C6E2813B88600D65379 /* MixJuice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixJuice.swift; sourceTree = "<group>"; };
 		B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmMixJuice+Repository.swift"; sourceTree = "<group>"; };
+		B2D46B5E2819745F00D4F1F5 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
 		E77142681063E1AB37327B24 /* Pods_RandomMixedJuice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomMixedJuice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,17 +97,44 @@
 				B28A38982812235800157561 /* AppDelegate.swift */,
 				B28D39C42814B9660046360D /* SceneDelegate.swift */,
 				B2C482B028143453009ACD9D /* Model */,
-				B28A389C2812235800157561 /* ViewController.swift */,
-				B28F5DFF2816DB74005C55C1 /* FruitsViewController.swift */,
-				B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */,
-				B28F5E012816DB8A005C55C1 /* Fruits.storyboard */,
-				B28A389E2812235800157561 /* Main.storyboard */,
+				B28CAD5D2818994700EE84F3 /* MixJuiceScreen */,
+				B28CAD5E2818CB5800EE84F3 /* FruitsScreen */,
+				B28CAD5C281898AC00EE84F3 /* UIComponents */,
+				B2D46B5D2819742100D4F1F5 /* Utilities */,
 				B28A38AC2812238300157561 /* Fruits.csv */,
 				B28A38A12812235A00157561 /* Assets.xcassets */,
 				B28A38A32812235A00157561 /* LaunchScreen.storyboard */,
 				B28A38A62812235A00157561 /* Info.plist */,
 			);
 			path = RandomMixedJuice;
+			sourceTree = "<group>";
+		};
+		B28CAD5C281898AC00EE84F3 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B28CAD5A281898A600EE84F3 /* CommonButton.swift */,
+				B2D46B5E2819745F00D4F1F5 /* StartStopButton.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		B28CAD5D2818994700EE84F3 /* MixJuiceScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B28A389C2812235800157561 /* ViewController.swift */,
+				B28A389E2812235800157561 /* Main.storyboard */,
+			);
+			path = MixJuiceScreen;
+			sourceTree = "<group>";
+		};
+		B28CAD5E2818CB5800EE84F3 /* FruitsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B28F5DFF2816DB74005C55C1 /* FruitsViewController.swift */,
+				B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */,
+				B28F5E012816DB8A005C55C1 /* Fruits.storyboard */,
+			);
+			path = FruitsScreen;
 			sourceTree = "<group>";
 		};
 		B2C482B028143453009ACD9D /* Model */ = {
@@ -113,6 +146,14 @@
 				B28D39C22814A0B20046360D /* RealmFruit+Repository.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B2D46B5D2819742100D4F1F5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B290A7DD2817666900BB7354 /* UIAlertController.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		D0EBB58E0A0433AC6C18CBA9 /* Frameworks */ = {
@@ -259,10 +300,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D46B5F2819745F00D4F1F5 /* StartStopButton.swift in Sources */,
 				B28D39C128149E6F0046360D /* Fruit.swift in Sources */,
 				B28F5E002816DB74005C55C1 /* FruitsViewController.swift in Sources */,
 				B28D39C52814B9660046360D /* SceneDelegate.swift in Sources */,
 				B28A389D2812235800157561 /* ViewController.swift in Sources */,
+				B290A7DE2817666900BB7354 /* UIAlertController.swift in Sources */,
+				B28CAD5B281898A600EE84F3 /* CommonButton.swift in Sources */,
 				B28F5E042816DC7C005C55C1 /* FruitsTableViewCell.swift in Sources */,
 				B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */,
 				B28A38992812235800157561 /* AppDelegate.swift in Sources */,

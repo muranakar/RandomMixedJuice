@@ -13,9 +13,12 @@ class ViewController: UIViewController {
         case start
         case stop
     }
-    let fruitRepository: FruitRepositoryProtocol = RealmFruitRepository()
+
+    private let fruitRepository: FruitRepositoryProtocol = RealmFruitRepository()
+
+    @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var fruitTextField: UITextField!
-    @IBOutlet weak var fruitAddButton: UIButton!
+    @IBOutlet weak private var fruitAddButton: UIButton!
     @IBOutlet weak private var resultFruit1Label: UILabel!
     @IBOutlet weak private var resultFruit2Label: UILabel!
     @IBOutlet weak private var resultFruit3Label: UILabel!
@@ -23,7 +26,8 @@ class ViewController: UIViewController {
     @IBOutlet weak private var resultFruit5Label: UILabel!
     @IBOutlet weak private var randomCountSegmentedControl: UISegmentedControl!
     @IBOutlet weak private var startStopButton: UIButton!
-    @IBOutlet weak var fruitsListButton: UIButton!
+    @IBOutlet weak private var fruitsListButton: UIButton!
+
     var resultFruitLabels: [UILabel] {
         [
             resultFruit1Label,
@@ -44,6 +48,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.alpha = 0.4
+        configureInitialViewLabel()
         configueViewStartStopButton()
         resetFruitNamesArrayAndAddFruitFromCsv()
     }
@@ -52,14 +58,28 @@ class ViewController: UIViewController {
         let fruitName = fruitTextField.text ?? ""
         if fruitName == "" { return }
         let fruit = Fruit(id: Fruit.ID(rawValue: UUID()), name: fruitName)
+        fruitTextField.text = ""
         fruitRepository.addFruit(fruit: fruit)
+        present(UIAlertController.addingCompletedFruit(), animated: true)
     }
 
     @IBAction private func randomStart(_ sender: Any) {
-        if !startStopButton.isSelected {
-            startStopButton.isSelected = true
-            mode = .start
+        switch mode {
+        case .start:
+            mode = .stop
+            startStopButton.isSelected = false
+
+            self.btnTimer!.invalidate()
+            configureViewLabel()
+            configueViewStartStopButton()
             configureViewIsEnableButton()
+            print(allResultFruits)
+        case .initial, .stop:
+            mode = .start
+            startStopButton.isSelected = true
+
+            configureViewIsEnableButton()
+            configueViewStartStopButton()
             resetFruitNamesArrayAndAddFruitFromCsv()
             resultFruitLabels.forEach { $0.text = "" }
             self.btnTimer = Timer.scheduledTimer(
@@ -68,18 +88,16 @@ class ViewController: UIViewController {
                 selector: #selector(self.changefruit),
                 userInfo: nil, repeats: true
             )
-        } else {
-            startStopButton.isSelected = false
-            mode = .stop
-            self.btnTimer!.invalidate()
-            configureViewLabel()
-            configureViewIsEnableButton()
-            print(allResultFruits)
         }
+    }
+    // MARK: - Segue
+    @IBAction private func backToViewController(segue: UIStoryboardSegue) {
+        resetFruitNamesArrayAndAddFruitFromCsv()
     }
 
     // MARK: - Method
     private func resetFruitNamesArrayAndAddFruitFromCsv() {
+        fruitNamesArray = []
         if loadedFruitNamesFromLocalDataBase.isEmpty {
             loadFruitNamesFromCsv().forEach { fruitName in
                 fruitRepository.addFruit(fruit: Fruit(id: Fruit.ID(rawValue: UUID()), name: fruitName))
@@ -105,16 +123,22 @@ class ViewController: UIViewController {
 
     @objc func changefruit() {
         allResultFruits = []
-        pickupRandomFruitsAndConfigureResultFruit1(elements: randomCountSegmentedControl.selectedSegmentIndex + 1)
+        pickupRandomFruitsAndConfigureResultFruit(elements: randomCountSegmentedControl.selectedSegmentIndex + 1)
         configureViewLabel()
     }
 
-    func pickupRandomFruitsAndConfigureResultFruit1(elements: Int) {
+    func pickupRandomFruitsAndConfigureResultFruit(elements: Int) {
         var count = 0
         allResultFruits = Set(fruitNamesArray).pickup(elements: elements)
         allResultFruits.forEach { resultFruit in
             resultFruitLabels[count].text = resultFruit
             count += 1
+        }
+    }
+
+    private func configureInitialViewLabel() {
+        resultFruitLabels.forEach { label in
+            label.text = ""
         }
     }
 
@@ -128,47 +152,19 @@ class ViewController: UIViewController {
             count += 1
         }
     }
-    // 現在使用していないメソッド
-    private func createMixJuiceStruct(resultFruits: [String]) -> MixJuice {
-        let index = resultFruits.count - 1
-        switch index {
-        case 0:
-            return MixJuice(id: MixJuice.ID(rawValue: UUID()), fruit1: resultFruits[0])
-        case 1:
-            return MixJuice(id: MixJuice.ID(rawValue: UUID()), fruit1: resultFruits[0], fruit2: resultFruits[1])
-        case 2:
-            return MixJuice(id: MixJuice.ID(rawValue: UUID()),
-                            fruit1: resultFruits[0], fruit2: resultFruits[1],
-                            fruit3: resultFruits[2])
-        case 3:
-            return MixJuice(id: MixJuice.ID(rawValue: UUID()),
-                            fruit1: resultFruits[0], fruit2: resultFruits[1],
-                            fruit3: resultFruits[2], fruit4: resultFruits[3])
-        case 4:
-            return MixJuice(id: MixJuice.ID(rawValue: UUID()),
-                            fruit1: resultFruits[0], fruit2: resultFruits[1],
-                            fruit3: resultFruits[2], fruit4: resultFruits[3],
-                            fruit5: resultFruits[4])
-        default:
-            fatalError()
-        }
-    }
     // MARK: - View
     private func configueViewStartStopButton() {
-        startStopButton.setTitle("スタート", for: .normal)
-        startStopButton.setTitle("ストップ", for: .selected)
+//        startStopButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
     }
+
     private func configureViewIsEnableButton() {
         switch mode {
-        case .initial:
+        case .initial, .stop:
             fruitAddButton.isEnabled = true
             fruitsListButton.isEnabled = true
         case .start:
             fruitAddButton.isEnabled = false
             fruitsListButton.isEnabled = false
-        case .stop:
-            fruitAddButton.isEnabled = true
-            fruitsListButton.isEnabled = true
         }
     }
 }
