@@ -23,6 +23,7 @@ class FruitsViewController: UIViewController {
                 animated: true
         )
     }
+    // MARK: - Method
     private func removeAllFruitsFromLocalDatabaseAndAddFruitFromCsv() {
         fruits.forEach { fruit in
             repository.removeFruit(fruit: fruit)

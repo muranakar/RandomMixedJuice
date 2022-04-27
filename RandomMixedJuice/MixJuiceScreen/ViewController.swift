@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         imageView.alpha = 0.4
         configureInitialViewLabel()
-        configueViewStartStopButton()
+
         resetFruitNamesArrayAndAddFruitFromCsv()
     }
 
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
 
             self.btnTimer!.invalidate()
             configureViewLabel()
-            configueViewStartStopButton()
+
             configureViewIsEnableButton()
             print(allResultFruits)
         case .initial, .stop:
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
             startStopButton.isSelected = true
 
             configureViewIsEnableButton()
-            configueViewStartStopButton()
+
             resetFruitNamesArrayAndAddFruitFromCsv()
             resultFruitLabels.forEach { $0.text = "" }
             self.btnTimer = Timer.scheduledTimer(
@@ -153,9 +153,6 @@ class ViewController: UIViewController {
         }
     }
     // MARK: - View
-    private func configueViewStartStopButton() {
-//        startStopButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
-    }
 
     private func configureViewIsEnableButton() {
         switch mode {
