@@ -101,7 +101,6 @@
 				B28CAD5E2818CB5800EE84F3 /* FruitsScreen */,
 				B28CAD5C281898AC00EE84F3 /* UIComponents */,
 				B2D46B5D2819742100D4F1F5 /* Utilities */,
-				B28A38AC2812238300157561 /* Fruits.csv */,
 				B28A38A12812235A00157561 /* Assets.xcassets */,
 				B28A38A32812235A00157561 /* LaunchScreen.storyboard */,
 				B28A38A62812235A00157561 /* Info.plist */,
@@ -140,6 +139,7 @@
 		B2C482B028143453009ACD9D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B28A38AC2812238300157561 /* Fruits.csv */,
 				B2B26C6E2813B88600D65379 /* MixJuice.swift */,
 				B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */,
 				B28D39C028149E6F0046360D /* Fruit.swift */,

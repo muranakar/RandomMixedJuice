@@ -68,18 +68,14 @@ class ViewController: UIViewController {
         case .start:
             mode = .stop
             startStopButton.isSelected = false
-
             self.btnTimer!.invalidate()
             configureViewLabel()
-
             configureViewIsEnableButton()
             print(allResultFruits)
         case .initial, .stop:
             mode = .start
             startStopButton.isSelected = true
-
             configureViewIsEnableButton()
-
             resetFruitNamesArrayAndAddFruitFromCsv()
             resultFruitLabels.forEach { $0.text = "" }
             self.btnTimer = Timer.scheduledTimer(

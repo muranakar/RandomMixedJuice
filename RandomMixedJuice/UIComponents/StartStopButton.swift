@@ -33,9 +33,6 @@ class StartStopButton: UIButton {
         setTitleColor(UIColor(displayP3Red: 79/255, green: 172/255, blue: 254/255, alpha: 1.0), for: .normal)
         setTitleColor(UIColor(displayP3Red: 79/255, green: 172/255, blue: 254/255, alpha: 1.0), for: .selected)
         backgroundColor = UIColor.white
-        // この下記の、FontSizeの調整が反映されないのは、なぜか？
-        // レイアウト・デザインの成り立ち？が理解できていないと考えている。
-        // このファイルからでは、文字サイズの調整ができないのか。。
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
     }
 
