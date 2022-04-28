@@ -36,7 +36,7 @@ class StartStopButton: UIButton {
         // この下記の、FontSizeの調整が反映されないのは、なぜか？
         // レイアウト・デザインの成り立ち？が理解できていないと考えている。
         // このファイルからでは、文字サイズの調整ができないのか。。
-        titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
     }
 
     private func updateLayer() {
