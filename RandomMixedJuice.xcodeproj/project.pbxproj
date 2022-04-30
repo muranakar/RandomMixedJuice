@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		422758FC5B6CD680AA15F76B /* Pods_RandomMixedJuice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77142681063E1AB37327B24 /* Pods_RandomMixedJuice.framework */; };
 		B2491D19281DDC3300B5C419 /* ExtentionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2491D18281DDC3300B5C419 /* ExtentionUIColor.swift */; };
+		B2491D1B281DE23000B5C419 /* ResetAndBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2491D1A281DE23000B5C419 /* ResetAndBackButton.swift */; };
 		B28A38992812235800157561 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A38982812235800157561 /* AppDelegate.swift */; };
 		B28A389D2812235800157561 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A389C2812235800157561 /* ViewController.swift */; };
 		B28A38A02812235800157561 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28A389E2812235800157561 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		08214D7E21FB518E4B693988 /* Pods-RandomMixedJuice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMixedJuice.debug.xcconfig"; path = "Target Support Files/Pods-RandomMixedJuice/Pods-RandomMixedJuice.debug.xcconfig"; sourceTree = "<group>"; };
 		653DFF810EFA6E7408039198 /* Pods-RandomMixedJuice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomMixedJuice.release.xcconfig"; path = "Target Support Files/Pods-RandomMixedJuice/Pods-RandomMixedJuice.release.xcconfig"; sourceTree = "<group>"; };
 		B2491D18281DDC3300B5C419 /* ExtentionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionUIColor.swift; sourceTree = "<group>"; };
+		B2491D1A281DE23000B5C419 /* ResetAndBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAndBackButton.swift; sourceTree = "<group>"; };
 		B28A38952812235800157561 /* RandomMixedJuice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomMixedJuice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B28A38982812235800157561 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B28A389C2812235800157561 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				B28CAD5A281898A600EE84F3 /* CommonButton.swift */,
 				B2D46B5E2819745F00D4F1F5 /* StartStopButton.swift */,
 				B2491D18281DDC3300B5C419 /* ExtentionUIColor.swift */,
+				B2491D1A281DE23000B5C419 /* ResetAndBackButton.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2491D1B281DE23000B5C419 /* ResetAndBackButton.swift in Sources */,
 				B2D46B5F2819745F00D4F1F5 /* StartStopButton.swift in Sources */,
 				B28D39C128149E6F0046360D /* Fruit.swift in Sources */,
 				B28F5E002816DB74005C55C1 /* FruitsViewController.swift in Sources */,

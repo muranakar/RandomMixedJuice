@@ -48,9 +48,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.alpha = 0.4
-        configureInitialViewLabel()
-
+        imageView.alpha = 0.1
+        configureViewInitialLabel()
+        configureViewStartStopButton()
         resetFruitNamesArrayAndAddFruitFromCsv()
     }
 
@@ -67,14 +67,13 @@ class ViewController: UIViewController {
         switch mode {
         case .start:
             mode = .stop
-            startStopButton.isSelected = false
             self.btnTimer!.invalidate()
             configureViewLabel()
+            configureViewStartStopButton()
             configureViewIsEnableButton()
-            print(allResultFruits)
         case .initial, .stop:
             mode = .start
-            startStopButton.isSelected = true
+            configureViewStartStopButton()
             configureViewIsEnableButton()
             resetFruitNamesArrayAndAddFruitFromCsv()
             resultFruitLabels.forEach { $0.text = "" }
@@ -108,7 +107,6 @@ class ViewController: UIViewController {
             forResource: "Fruits",
             ofType: "csv"
         ) else {
-            print("csvファイルがない。")
             fatalError()
         }
         let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -131,8 +129,8 @@ class ViewController: UIViewController {
             count += 1
         }
     }
-
-    private func configureInitialViewLabel() {
+    // MARK: - View
+    private func configureViewInitialLabel() {
         resultFruitLabels.forEach { label in
             label.text = ""
         }
@@ -148,7 +146,14 @@ class ViewController: UIViewController {
             count += 1
         }
     }
-    // MARK: - View
+    private func configureViewStartStopButton() {
+        switch mode {
+        case .initial, .stop :
+            startStopButton.setTitle("スタート", for: .normal)
+        case .start:
+            startStopButton.setTitle("ストップ", for: .normal)
+        }
+    }
 
     private func configureViewIsEnableButton() {
         switch mode {

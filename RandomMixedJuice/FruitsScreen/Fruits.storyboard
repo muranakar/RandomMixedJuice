@@ -49,18 +49,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s9e-6B-q1r">
                                 <rect key="frame" x="10" y="806" width="394" height="46"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3z-jf-p3Y" customClass="CommonButton" customModule="RandomMixedJuice" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3z-jf-p3Y" customClass="ResetAndBackButton" customModule="RandomMixedJuice" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="46"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="リセット"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="リセット"/>
                                         <connections>
                                             <action selector="reset:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2Ol-4N-lsR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D03-Zq-Bk2" customClass="CommonButton" customModule="RandomMixedJuice" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D03-Zq-Bk2" customClass="ResetAndBackButton" customModule="RandomMixedJuice" customModuleProvider="target">
                                         <rect key="frame" x="202" y="0.0" width="192" height="46"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="もどる"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="もどる"/>
                                         <connections>
                                             <segue destination="5Uf-SR-Umt" kind="unwind" unwindAction="backToViewControllerWithSegue:" id="dRa-y3-qeU"/>
                                         </connections>
@@ -94,10 +94,10 @@
     </scenes>
     <designables>
         <designable name="D03-Zq-Bk2">
-            <size key="intrinsicContentSize" width="67" height="31"/>
+            <size key="intrinsicContentSize" width="56" height="34"/>
         </designable>
         <designable name="n3z-jf-p3Y">
-            <size key="intrinsicContentSize" width="81.5" height="31"/>
+            <size key="intrinsicContentSize" width="74" height="34"/>
         </designable>
     </designables>
     <resources>

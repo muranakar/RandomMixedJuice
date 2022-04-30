@@ -28,8 +28,7 @@ class StartStopButton: UIButton {
         updateLayer()
     }
     private func initializeContent() {
-        setTitle("スタート", for: .normal)
-        setTitle("ストップ", for: .selected)
+        setTitle("", for: .highlighted)
         setTitleColor(.black, for: .normal)
         setTitleColor(.black, for: .selected)
         backgroundColor = UIColor(hex: "FFBD2F")

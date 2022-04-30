@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class CommonButton: UIButton {
+class ResetAndBackButton: UIButton {
 override init(frame: CGRect) {
     super.init(frame: frame)
     customDesign()
@@ -27,8 +27,8 @@ required init?(coder aDecoder: NSCoder) {
   private func customDesign() {
       backgroundColor = UIColor.white
       setTitleColor(.black, for: .normal)
-      titleLabel?.font = UIFont.systemFont(ofSize: 14)
-      layer.cornerRadius = 15.0
+      titleLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
+      layer.cornerRadius = 20
       layer.borderColor =  UIColor(hex: "FFBD2F")?.cgColor
       layer.borderWidth = 2
   }
