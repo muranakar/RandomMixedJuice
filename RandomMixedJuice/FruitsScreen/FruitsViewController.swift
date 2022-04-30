@@ -38,7 +38,6 @@ class FruitsViewController: UIViewController {
             forResource: "Fruits",
             ofType: "csv"
         ) else {
-            print("csvファイルがない。")
             fatalError()
         }
         let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)

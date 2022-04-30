@@ -32,7 +32,7 @@ class StartStopButton: UIButton {
         setTitle("ストップ", for: .selected)
         setTitleColor(UIColor(displayP3Red: 79/255, green: 172/255, blue: 254/255, alpha: 1.0), for: .normal)
         setTitleColor(UIColor(displayP3Red: 79/255, green: 172/255, blue: 254/255, alpha: 1.0), for: .selected)
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor(hex: "FFBD2F")
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
     }
 
