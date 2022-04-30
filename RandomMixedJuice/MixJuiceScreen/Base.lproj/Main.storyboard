@@ -88,10 +88,9 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9L-A1-W3M" customClass="StartStopButton" customModule="RandomMixedJuice" customModuleProvider="target">
-                                <rect key="frame" x="117" y="712" width="180" height="80"/>
+                                <rect key="frame" x="40" y="712" width="334" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Zj9-Xk-uJk"/>
-                                    <constraint firstAttribute="width" constant="180" id="uc2-Pq-Jk0"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="スタート"/>
@@ -119,6 +118,7 @@
                             <constraint firstItem="gS3-PQ-42B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2mV-gO-esz"/>
                             <constraint firstItem="K36-Pk-ntQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="3bS-Ge-CDq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gS3-PQ-42B" secondAttribute="trailing" constant="20" id="BVz-hr-pjI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C9L-A1-W3M" secondAttribute="trailing" constant="40" id="G1i-P7-DE7"/>
                             <constraint firstItem="C9L-A1-W3M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H39-od-je9"/>
                             <constraint firstItem="gvl-Pd-IZj" firstAttribute="top" secondItem="C9L-A1-W3M" secondAttribute="bottom" constant="20" id="JGi-sO-yh1"/>
                             <constraint firstItem="UFV-Nn-n2t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="N12-rz-EpB"/>
@@ -136,6 +136,7 @@
                             <constraint firstItem="i2f-na-dMM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g4N-Mj-cG2"/>
                             <constraint firstItem="UFV-Nn-n2t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="sAi-98-suM"/>
                             <constraint firstItem="5rM-n2-eEo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xPp-Vd-QNY"/>
+                            <constraint firstItem="C9L-A1-W3M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ypn-Ag-HTg"/>
                             <constraint firstItem="gS3-PQ-42B" firstAttribute="top" secondItem="UFV-Nn-n2t" secondAttribute="bottom" constant="20" id="znC-HE-Flw"/>
                         </constraints>
                     </view>
@@ -171,7 +172,7 @@
     </scenes>
     <designables>
         <designable name="C9L-A1-W3M">
-            <size key="intrinsicContentSize" width="161" height="60"/>
+            <size key="intrinsicContentSize" width="102" height="42"/>
         </designable>
         <designable name="K36-Pk-ntQ">
             <size key="intrinsicContentSize" width="53" height="31"/>

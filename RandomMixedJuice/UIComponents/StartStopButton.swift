@@ -30,15 +30,15 @@ class StartStopButton: UIButton {
     private func initializeContent() {
         setTitle("スタート", for: .normal)
         setTitle("ストップ", for: .selected)
-        setTitleColor(UIColor(displayP3Red: 79/255, green: 172/255, blue: 254/255, alpha: 1.0), for: .normal)
-        setTitleColor(UIColor(displayP3Red: 79/255, green: 172/255, blue: 254/255, alpha: 1.0), for: .selected)
+        setTitleColor(.black, for: .normal)
+        setTitleColor(.black, for: .selected)
         backgroundColor = UIColor(hex: "FFBD2F")
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
     }
 
     private func updateLayer() {
-        layer.cornerRadius = 15.0
-        layer.borderColor =  UIColor(displayP3Red: 79/255, green: 172/255, blue: 254/255, alpha: 1.0).cgColor
+        layer.cornerRadius = 40.0
+        layer.borderColor =  UIColor(hex: "FFBD2F")?.cgColor
         layer.borderWidth = 2
     }
 }
