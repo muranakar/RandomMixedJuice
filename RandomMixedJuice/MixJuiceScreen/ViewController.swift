@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ViewController: UIViewController {
     enum Mode {
@@ -28,6 +29,11 @@ class ViewController: UIViewController {
     @IBOutlet weak private var startStopButton: UIButton!
     @IBOutlet weak private var fruitsListButton: UIButton!
 
+    //　広告
+    @IBOutlet weak private var bannerView: GADBannerView!  // 追加したUIViewを接続
+    private var interstitial: GADInterstitialAd?
+
+
     var resultFruitLabels: [UILabel] {
         [
             resultFruit1Label,
@@ -48,6 +54,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureAdBannar()
         imageView.alpha = 0.1
         configureViewInitialLabel()
         configureViewStartStopButton()
@@ -71,8 +78,10 @@ class ViewController: UIViewController {
             configureViewLabel()
             configureViewStartStopButton()
             configureViewIsEnableButton()
+            showGoogleIntitialAdOnceInThreeTimes()
         case .initial, .stop:
             mode = .start
+            configureInterstitialAd()
             configureViewStartStopButton()
             configureViewIsEnableButton()
             resetFruitNamesArrayAndAddFruitFromCsv()
@@ -129,6 +138,40 @@ class ViewController: UIViewController {
             count += 1
         }
     }
+    private func configureAdBannar() {
+        // GADBannerViewのプロパティを設定
+        bannerView.adUnitID = "\(GoogleAdID.bannerID)"
+        bannerView.rootViewController = self
+
+        // 広告読み込み
+        bannerView.load(GADRequest())
+    }
+    // MARK: - 広告関係のメソッド
+    private func configureInterstitialAd() {
+        // インタースティシャル広告
+        let request = GADRequest()
+        GADInterstitialAd.load(
+            withAdUnitID: GoogleAdID.interstitialID,
+            request: request,
+            completionHandler: { [self] ad, error in
+                if let error = error {
+                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                    return
+                }
+                interstitial = ad
+                interstitial?.fullScreenContentDelegate = self
+            }
+        )
+    }
+
+    //　Google広告を2回に表示するメソッド
+    func showGoogleIntitialAdOnceInThreeTimes() {
+        // 広告を2回に、１回表示する処理
+        let adNum = GADRepository.processAfterAddGADNumPulsOneAndSaveGADNum()
+        if adNum % 2 == 0 && interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+        }
+    }
     // MARK: - View
     private func configureViewInitialLabel() {
         resultFruitLabels.forEach { label in
@@ -164,6 +207,25 @@ class ViewController: UIViewController {
             fruitAddButton.isEnabled = false
             fruitsListButton.isEnabled = false
         }
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+}
+
+extension ViewController: GADFullScreenContentDelegate {
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+    }
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
     }
 }
 

@@ -9,5 +9,6 @@ target 'RandomMixedJuice' do
 
 pod 'RealmSwift'
 pod 'SwiftLint'
+pod 'Google-Mobile-Ads-SDK'
 
 end

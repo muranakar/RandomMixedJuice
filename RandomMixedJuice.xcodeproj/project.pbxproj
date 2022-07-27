@@ -24,6 +24,8 @@
 		B28F5E022816DB8A005C55C1 /* Fruits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B28F5E012816DB8A005C55C1 /* Fruits.storyboard */; };
 		B28F5E042816DC7C005C55C1 /* FruitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */; };
 		B290A7DE2817666900BB7354 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B290A7DD2817666900BB7354 /* UIAlertController.swift */; };
+		B2B1D0C9289169B800D91EF3 /* GoogleAdID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0C8289169B800D91EF3 /* GoogleAdID.swift */; };
+		B2B1D0CB2891713D00D91EF3 /* GADRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B1D0CA2891713D00D91EF3 /* GADRepository.swift */; };
 		B2B26C6F2813B88600D65379 /* MixJuice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B26C6E2813B88600D65379 /* MixJuice.swift */; };
 		B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */; };
 		B2D46B5F2819745F00D4F1F5 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D46B5E2819745F00D4F1F5 /* StartStopButton.swift */; };
@@ -50,6 +52,8 @@
 		B28F5E012816DB8A005C55C1 /* Fruits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Fruits.storyboard; sourceTree = "<group>"; };
 		B28F5E032816DC7C005C55C1 /* FruitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsTableViewCell.swift; sourceTree = "<group>"; };
 		B290A7DD2817666900BB7354 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		B2B1D0C8289169B800D91EF3 /* GoogleAdID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAdID.swift; sourceTree = "<group>"; };
+		B2B1D0CA2891713D00D91EF3 /* GADRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GADRepository.swift; sourceTree = "<group>"; };
 		B2B26C6E2813B88600D65379 /* MixJuice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixJuice.swift; sourceTree = "<group>"; };
 		B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmMixJuice+Repository.swift"; sourceTree = "<group>"; };
 		B2D46B5E2819745F00D4F1F5 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		B2C482B028143453009ACD9D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2B1D0C8289169B800D91EF3 /* GoogleAdID.swift */,
+				B2B1D0CA2891713D00D91EF3 /* GADRepository.swift */,
 				B28A38AC2812238300157561 /* Fruits.csv */,
 				B2B26C6E2813B88600D65379 /* MixJuice.swift */,
 				B2C482B128143472009ACD9D /* RealmMixJuice+Repository.swift */,
@@ -312,9 +318,11 @@
 				B28F5E002816DB74005C55C1 /* FruitsViewController.swift in Sources */,
 				B28D39C52814B9660046360D /* SceneDelegate.swift in Sources */,
 				B28A389D2812235800157561 /* ViewController.swift in Sources */,
+				B2B1D0C9289169B800D91EF3 /* GoogleAdID.swift in Sources */,
 				B290A7DE2817666900BB7354 /* UIAlertController.swift in Sources */,
 				B28CAD5B281898A600EE84F3 /* CommonButton.swift in Sources */,
 				B28F5E042816DC7C005C55C1 /* FruitsTableViewCell.swift in Sources */,
+				B2B1D0CB2891713D00D91EF3 /* GADRepository.swift in Sources */,
 				B2491D19281DDC3300B5C419 /* ExtentionUIColor.swift in Sources */,
 				B2C482B228143472009ACD9D /* RealmMixJuice+Repository.swift in Sources */,
 				B28A38992812235800157561 /* AppDelegate.swift in Sources */,
@@ -470,7 +478,7 @@
 				DEVELOPMENT_TEAM = DJ7VR35KC8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RandomMixedJuice/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ミックスジュース";
+				INFOPLIST_KEY_CFBundleDisplayName = "ミックス";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -480,12 +488,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.muranaka.RandomMixedJuice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -500,7 +508,7 @@
 				DEVELOPMENT_TEAM = DJ7VR35KC8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RandomMixedJuice/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "ミックスジュース";
+				INFOPLIST_KEY_CFBundleDisplayName = "ミックス";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -510,12 +518,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.muranaka.RandomMixedJuice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
